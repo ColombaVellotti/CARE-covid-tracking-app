@@ -41,14 +41,15 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
                     {
                         data: dailyData.map(({ confirmed }) => confirmed),
                         label: "Infected",
-                        borderColor: "#3333ff",
+                        borderColor: "rgba(0, 77, 153)",
+                        backgroundColor: "rgba(0, 0, 255, 0.5)",
                         fill: true,
                     },
                     {
                         data: dailyData.map(({ deaths }) => deaths),
                         label: "Deaths",
-                        borderColor: "red",
-                        backgroundColor: "rgba(255,0,0,0.5)",
+                        borderColor: "rgb(171,52,36)",
+                        backgroundColor: "rgb(207,80,68)",
                         fill: true,
                     },
                 ],
@@ -59,25 +60,22 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
     const barChart = confirmed ? (
         <Bar
             data={{
-                labels: ["Infected", "Recovered", "Deaths", "Active"],
+                labels: ["Infected", "Deaths", "Active"],
                 datasets: [
                     {
                         label: "People",
                         backgroundColor: [
                             "rgba(0, 0, 255, 0.5)",
-                            "rgba(0, 255, 0, 0.5)",
-                            "rgba(255, 0, 0, 0.5)",
-                            "rgba(242, 234, 0, 0.5)",
+                            "rgb(207,80,68)",
+                            "rgb(260,158,120)",
                         ],
                         hoverBackgroundColor: [
                             "rgba(0, 77, 153)",
-                            "rgba(30, 102, 49)",
-                            "rgba(255, 51, 51)",
-                            "rgba(204, 153, 0)",
+                            "rgb(171,52,36)",
+                            "rgb(232,91,81)",
                         ],
                         data: [
                             confirmed.value,
-                            recovered.value,
                             deaths.value,
                             confirmed.value - (recovered.value + deaths.value),
                         ],
