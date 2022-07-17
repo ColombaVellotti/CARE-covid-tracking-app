@@ -5,19 +5,25 @@ import CountUp from "react-countup";
 import cx from "classnames";
 
 const Cards = ({
-    data: { confirmed, deaths, lastUpdate },
+    data: { confirmed, recovered, deaths, lastUpdate },
     country,
 }) => {
     if (!confirmed) {
         return "Loading...";
     }
-    const active = confirmed["value"] - deaths["value"];
+    const active = confirmed["value"] - recovered["value"] - deaths["value"];
     let cardDetails = [
         {
             style: styles.infected,
             text: "Infected",
             value: confirmed.value,
             bottomText: "Number of infect cases of COVID-19",
+        },
+        {
+            style: styles.recovered,
+            text: "Recovered",
+            value: recovered.value,
+            bottomText: "Number of recoveries from COVID-19",
         },
         {
             style: styles.deaths,
