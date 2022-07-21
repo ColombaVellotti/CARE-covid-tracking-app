@@ -27,7 +27,7 @@ const Cards = ({
         },
         {
             style: styles.active,
-            text: "Recovered",
+            text: "Active",
             value: active,
             bottomText: "Number of active cases of COVID-19",
         },
